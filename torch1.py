@@ -10,3 +10,9 @@ print(x)
 x = torch.tensor([5.5, 3])                 # データから直接構成
 print(x)
 x.size()                                   # サイズ取得
+
+# Tensor用にdeviceを定義
+device = torch.device('cuda:' + str(args.gpu)
+                      if torch.cuda.is_available() else 'cpu')
+
+orig_trajs = torch.from_numpy(orig_trajs).float().to(device)  # Creates a Tensor from a numpy.ndarray.
